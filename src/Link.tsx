@@ -37,10 +37,7 @@ export const Link = ({ link, updateLink, deleteLink }: LinkProps) => {
           setIsEdit(false);
           updateLink({ id: link.id, text: linkText, href: hrefText });
         })} />
-        <Button title="Delete" onPress={() => {
-          setIsEdit(false);
-          deleteLink(link.id);
-        }} />
+        <Button title="Cancel" onPress={() => { setIsEdit(false) }} />
       </View>
     );
   };
@@ -50,11 +47,16 @@ export const Link = ({ link, updateLink, deleteLink }: LinkProps) => {
   )
 
   return (
-    <View>
+    <View style={[styles.row]}>
       <Text href={link.href} role="link" style={[styles.linkButton]}>{link.text}</Text>
-      <Button title="Edit" onPress={() => {
-        setIsEdit(true);
-      }} />
+      <View style={{ flexDirection: 'row' }}>
+        <Button title="Edit" onPress={() => {
+          setIsEdit(true);
+        }} />
+        <Button title="Delete" onPress={() => {
+          deleteLink(link.id);
+        }} />
+      </View>
     </View>
   )
 }

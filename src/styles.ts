@@ -12,7 +12,9 @@ export const styles = StyleSheet.create({
   row: {
     flexDirection: "row",
     height: 40,
+    width: 480,
     alignItems: "center",
+    justifyContent: "space-between",
   },
   container: {
     flex: 1,
